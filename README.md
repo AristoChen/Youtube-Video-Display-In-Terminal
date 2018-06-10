@@ -13,9 +13,6 @@ cap = cv2.VideoCapture('test.mp4')
 ```
 
 #### Original Video
-I use one of my favorite figure skaters as a testing input, his name is Shoma Uno, who is a silver medalist in winter olympic 2018. 
-
-![Original](Original.gif)
-
+<img src="https://media.giphy.com/media/3rTT8LUGIrF36BAv0y/giphy.gif" width="250" height="250" />
 #### Converted Result 
-![Converted](Converted.gif)
+<img src="https://media.giphy.com/media/1BcB7pye3ANpRUGzi4/giphy.gif" width="250" height="250" />
