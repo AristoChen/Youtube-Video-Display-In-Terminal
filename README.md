@@ -13,7 +13,7 @@ cap = cv2.VideoCapture('test.mp4')
 ```
 
 #### Original Video
-![Original](https://media.giphy.com/media/3rTT8LUGIrF36BAv0y/giphy.gif)
+![Original](Original.gif)
 
 #### Converted Result 
-![Converted](https://media.giphy.com/media/1BcB7pye3ANpRUGzi4/giphy.gif)
+![Converted](Converted.gif)
