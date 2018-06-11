@@ -1,13 +1,19 @@
+from pytube import YouTube
 from bisect import bisect
 from PIL import Image
 import numpy as np
 import random
+import time
 import math
 import cv2
 import sys
 import os
 
-cap = cv2.VideoCapture('test.mp4')
+def downloadYoutubeVideo(url):
+    video = YouTube(url)
+    stream = video.streams.filter(only_video = True, file_extension = "mp4")
+    stream.last().download(filename="youtube_video")
+
 
 def convertToText(image):
     greyscale = [
@@ -47,9 +53,23 @@ def convertToText(image):
 
 
 if __name__ == "__main__":
-    os.system('cls')
 
-    currentFrame = 0    
+    if len(sys.argv) < 3:
+        print("Error: Input Arguments are wrong")
+        print("If you want to convert local video file, the first argument is 'local', and the last is file name.")
+        print("If you want to convert youtebe video, the first argument is 'youtube', and the last is youtube link.")
+        sys.exit()
+    else:
+        if str(sys.argv[1]).lower() == "local":
+            filename = sys.argv[2]
+        elif str(sys.argv[1]).lower() == "youtube":
+            downloadYoutubeVideo(sys.argv[2])
+            filename = "youtube_video.mp4"
+        else:
+            print("The first argument is wrong")
+            sys.exit()
+    
+    cap = cv2.VideoCapture(filename)
     try:
         while(True):
             ret, frame = cap.read()
@@ -66,3 +86,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         cap.release()
         cv2.destroyAllWindows()
+    
